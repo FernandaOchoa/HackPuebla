@@ -1,5 +1,5 @@
  'use strict';
-//const functions = require('firebase-functions');
+const functions = require('firebase-functions');
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -14,7 +14,6 @@
  exports.helloWorld3 = functions.https.onRequest((request, response) => {
   response.send("Yo tambien soy un mensajito!");
  });
-
 
  process.env.DEBUG = '*';
 
@@ -31,14 +30,6 @@
 
  const aog = require('actions-on-google');
  const DialogflowApp = aog.DialogflowApp;
-
-/* const Twilio = require('twilio');
- const VoiceResponse = Twilio.twiml.VoiceResponse;
- const TwilioClient = new Twilio(
-   config.TWILIO.accountSid,
-   config.TWILIO.authToken
- );
-*/
  /**
   * Publishes the result to the given pubsub topic and returns a Promise.
   *
@@ -322,63 +313,6 @@
    });
  }
 
- /*
-  * Sends an SMS using Twilio's service.
-  *
-  * @param {string} body The content to send via SMS.
-
- function sendSMS(body) {
-   return TwilioClient.messages
-     .create({
-       to: '+33000000000',
-       from: '+33000000000',
-       body: body || 'MESSAGE NOT FOUND'
-     })
-     .then(message => console.log(message.sid))
-     .catch(e => {
-       console.error(e);
-     });
- } */
-
- /* Triggers a call using Twilio's service.
-
- function call() {
-   return TwilioClient.api.calls
-     .create({
-       url:
-         'https://us-central1-cloud-function-ocr-demo.cloudfunctions.net/ocr-twilio-call',
-       to: '+33000000000',
-       from: '+33000000000'
-     })
-     .then(call => console.log(call.sid))
-     .catch(e => {
-       console.error(e);
-     });
- }
-*/
-
-
- /*
-  * Handles the incoming Twilio call request. Triggered from an HTTP call.
-  *
-  * @param {object} request Express.js request object.
-  * @param {object} response Express.js response object.
-  */
-/* module.exports.twilioCall = function(request, response) {
-   return readFromBucket({
-     filename: 'cf.png_to_en.txt'
-   }).then(content => {
-     const twiml = new VoiceResponse();
-     twiml.say(`
-     <Say voice="woman">Hi, this is your extracted text:</Say>
-     <Pause length="2"></Pause>
-     <Say voice="woman">${content}</Say>
-     `);
-     res.writeHead(200, { 'Content-Type': 'text/xml' });
-     res.end(twiml.toString());
-   });
- };
-*/
  /**
   * Uploads the file to GCS.
   *
